@@ -7,7 +7,7 @@
  * @since ElectronPress 1.0.0
  */
 
-
+require 'theme4-nav-walker.php';
 
 /**
 * Registers a navigation menu location for a theme.
@@ -18,5 +18,19 @@
 * @param string $description Menu location descriptive text.
 */
 register_nav_menus( array(
-	'menu-1' => esc_html__( 'Primary', 'ELECTRON_THEME_TEXT_DOMAIN' ),
+	'menu-1' => esc_html__( 'Primary', 'theme4' ),
 ) );
+
+
+
+
+function headerMenu(){ ?>
+	<?php 
+	$menu = array(
+		'theme_location' => 'menu-1',
+		'menu_class' => 'Lorem',
+		'menu_id' => 'menuclass',
+		'walker' => new theme4_nav_walker()
+	);
+	wp_nav_menu($menu); ?>
+<?php }

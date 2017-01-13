@@ -1,38 +1,25 @@
-<?php
-/**
- * The template for displaying pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages and that
- * other "pages" on your WordPress site will use a different template.
- *
- * @package ElectronPress
- * @since ElectronPress 1.0.0
- */
+<?php get_header(); ?>
 
- get_header(); ?>
+<?php get_sidebar(); ?>
+	<div id="content">
+		<?php 
+		do_action( 'theme4_before_content' );
 
-<?php 
-do_action( 'ELECTRON_THEME_SLUG_NAME_before_content' );
-do_action( 'ELECTRON_THEME_SLUG_NAME_before_page_content' );
+		    if ( have_posts() ) :
 
-    if ( have_posts() ) :
+		      while ( have_posts() ) : the_post();
 
-      while ( have_posts() ) : the_post();
+		        get_template_part( 'template-parts/content', 'page' );
+		        comment_form();
 
-        get_template_part( 'template-parts/content', get_post_format() );
+		      endwhile;
 
-      endwhile;
+		    else :
 
-      the_posts_navigation();
+		      get_template_part( 'template-parts/content', 'none' );
 
-    else :
-
-      get_template_part( 'template-parts/content', 'none' );
-
-    endif;
-
-
-do_action( 'ELECTRON_THEME_SLUG_NAME_after_page_content' ); 
-do_action( 'ELECTRON_THEME_SLUG_NAME_after_content' ); 
-?>
+		    endif;
+		do_action( 'theme4_after_content' ); 
+		?>
+	</div>
+<?php get_footer(); ?>

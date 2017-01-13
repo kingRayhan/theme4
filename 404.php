@@ -1,21 +1,14 @@
-<?php
-/**
- * The template for displaying 404 pages (not found)
- *
- * @package ElectronPress
- * @since ElectronPress 1.0.0
- */
+<?php get_header(); ?>
 
-get_header(); 
+<?php get_sidebar(); ?>
+	<div id="content">
+		<?php 
+		do_action( 'theme4_before_content' );
 
-
-get_template_part('contents/content','404');
+		      get_template_part( 'template-parts/content', 'none' );
 
 
-get_footer();
-
-?>
-
-
-
-
+		do_action( 'theme4_after_content' ); 
+		?>
+	</div>
+<?php get_footer(); ?>

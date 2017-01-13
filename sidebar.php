@@ -8,7 +8,11 @@
 
 ?>
 <aside class="sidebar">
-	<?php do_action( 'ELECTRON_THEME_SLUG_NAME_before_sidebar' ); ?>
-	<?php dynamic_sidebar( 'sidebar-widgets' ); ?>
-	<?php do_action( 'ELECTRON_THEME_SLUG_NAME_after_sidebar' ); ?>
+	<?php do_action( 'theme4_before_sidebar' ); ?>
+	<div id="sidebar">
+
+		<?php dynamic_sidebar('sidebar-widgets'); ?>
+		
+	</div>
+	<?php do_action( 'theme4_after_sidebar' ); ?>
 </aside>

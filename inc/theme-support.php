@@ -6,10 +6,10 @@
  * @since ElectronPress 1.0.0
  */
 
-if ( ! function_exists( 'ELECTRON_THEME_SLUG_NAME_theme_support' ) ) :
-function ELECTRON_THEME_SLUG_NAME_theme_support() {
+if ( ! function_exists( 'theme4_theme_support' ) ) :
+function theme4_theme_support() {
 	// Add language support
-	load_theme_textdomain( 'ELECTRON_THEME_TEXT_DOMAIN', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'theme4', get_template_directory() . '/languages' );
 
 	// Switch default core markup for search form, comment form, and comments to output valid HTML5
 	add_theme_support( 'html5', array('search-form','comment-form','comment-list','gallery','caption') );
@@ -38,5 +38,5 @@ function ELECTRON_THEME_SLUG_NAME_theme_support() {
 	add_editor_style( 'assets/stylesheets/foundation.css' );
 }
 
-add_action( 'after_setup_theme', 'ELECTRON_THEME_SLUG_NAME_theme_support' );
+add_action( 'after_setup_theme', 'theme4_theme_support' );
 endif;

@@ -12,6 +12,11 @@
 
 
 <?php wp_footer(); ?>
-<?php do_action( 'ELECTRON_THEME_SLUG_NAME_before_closing_body' ); ?>
+<?php do_action( 'theme4_before_closing_body' ); ?>
+	<div id="footer">
+		<?php echo get_theme_mod("footer_copyright" , "Theme4 Wordpress theme by <a href='//rayhan.info' target='_blank'>@KingRayhan</a>"); ?>
+	</div>
+</div>
 </body>
 </html>
+

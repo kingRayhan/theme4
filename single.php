@@ -1,24 +1,29 @@
 <?php get_header(); ?>
 
-<?php 
-do_action( 'ELECTRON_THEME_SLUG_NAME_before_content' );
+<?php get_sidebar(); ?>
+	<div id="content">
+		<?php 
+		do_action( 'theme4_before_content' );
+		do_action( 'theme4_before_single_page_content' );
 
-    if ( have_posts() ) :
+		    if ( have_posts() ) :
 
-      while ( have_posts() ) : the_post();
+		      while ( have_posts() ) : the_post();
 
-        get_template_part( 'template-parts/content');
+		        get_template_part( 'template-parts/content', 'single' );
+		        comment_form();
 
-      endwhile;
+		      endwhile;
 
-      the_posts_navigation();
+		    else :
 
-    else :
+		      get_template_part( 'template-parts/content', 'none' );
 
-      get_template_part( 'template-parts/content', 'single' );
-
-    endif;
+		    endif;
 
 
-do_action( 'ELECTRON_THEME_SLUG_NAME_after_content' );
-?>
+		do_action( 'theme4_after_single_page_content' ); 
+		do_action( 'theme4_after_content' ); 
+		?>
+	</div>
+<?php get_footer(); ?>

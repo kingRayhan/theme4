@@ -1,33 +1,27 @@
-<?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * e.g., it puts together the home page when no home.php file exists.
- *
- * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
- *
- * @package ElectronPress
- * @since ElectronPress 1.0.0
- */
+<?php get_header(); ?>
 
-get_header(); ?>
+<?php get_sidebar(); ?>
+	<div id="content">
+		<?php 
+		do_action( 'theme4_before_content');
 
-<?php
-	if ( have_posts() ) :
+		    if ( have_posts() ) :
 
-		while ( have_posts() ) : the_post();
+		      while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', get_post_format() );
 
-		endwhile;
+		        get_template_part( 'template-parts/content', get_post_format() );
 
-		the_posts_navigation();
+		      endwhile;
 
-	else :
+		      theme4_post_pagination();
 
-		get_template_part( 'template-parts/content', 'none' );
+		    else :
 
-	endif; ?>
+		      get_template_part( 'template-parts/content', 'none' );
+
+		    endif;
+		do_action( 'theme4_after_content' ); 
+		?>
+	</div>
+<?php get_footer(); ?>

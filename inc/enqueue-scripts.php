@@ -9,11 +9,12 @@
  * @since ElectronPress 1.0.0
  */
 
-if ( ! function_exists( 'ELECTRON_THEME_SLUG_NAME_scripts' ) ) :
-	function ELECTRON_THEME_SLUG_NAME_scripts() {
+if ( ! function_exists( 'theme4_scripts' ) ) :
+	function theme4_scripts() {
 
 
-	wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/assets/stylesheets/foundation.css', array(), '2.9.0', 'all' );
+	wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/assets/css/theme4.css');
+	wp_enqueue_style('style-css' , get_stylesheet_uri());
 
 	// Deregister the jquery version bundled with WordPress.
 	wp_deregister_script( 'jquery' );
@@ -29,5 +30,5 @@ if ( ! function_exists( 'ELECTRON_THEME_SLUG_NAME_scripts' ) ) :
 
 	}
 
-	add_action( 'wp_enqueue_scripts', 'ELECTRON_THEME_SLUG_NAME_scripts' );
+	add_action( 'wp_enqueue_scripts', 'theme4_scripts' );
 endif;

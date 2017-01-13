@@ -1,17 +1,15 @@
-   <article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
-       <header>
-           <h1 class="entry-title"><?php the_title(); ?></h1>
-       </header>
-       <?php do_action( 'ELECTRON_THEME_SLUG_NAME_page_before_entry_content' ); ?>
-       <div class="entry-content">
-           <?php the_content(); ?>
-           <?php edit_post_link( __( 'Edit', 'ELECTRON_THEME_TEXT_DOMAIN' ), '<span class="edit-link">', '</span>' ); ?>
-       </div>
-       <footer>
-           <?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'ELECTRON_THEME_TEXT_DOMAIN' ), 'after' => '</p></nav>' ) ); ?>
-           <p><?php the_tags(); ?></p>
-       </footer>
-       <?php do_action( 'ELECTRON_THEME_SLUG_NAME_page_before_comments' ); ?>
-       <?php comments_template(); ?>
-       <?php do_action( 'ELECTRON_THEME_SLUG_NAME_page_after_comments' ); ?>
-   </article>
+<article id="post-<?php the_ID(); ?>" <?php post_class('blogpost-entry content-page'); ?>>
+  <figure>
+    <?php the_post_thumbnail('theme4_fet',array('style' => 'width:100%;height:auto;margin-bottom:25px')); ?>
+  </figure>
+  <header>
+    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+    <?php theme4_entry_meta(); ?>
+  </header>
+  <div class="entry-content">
+    <?php the_content(); ?>
+  </div>
+  <footer>
+    <?php $tag = get_the_tags(); if ( $tag ) { ?><p><?php the_tags(); ?></p><?php } ?>
+  </footer>
+</article>

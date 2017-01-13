@@ -17,3 +17,10 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
+<div id="wrap">
+	<div id="header">
+		<div id="headerlinks">
+			<?php headerMenu(); ?>
+		</div>
+		<?php theme4_title(); ?>
+	</div>
